@@ -128,9 +128,9 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.1, rotateY: 10 }}
             >
               <Avatar className="w-60 h-60 border-4 border-primary shadow-neon relative z-10 group-hover:shadow-glow transition-all duration-300 bg-white">
-                <AvatarImage src="/src/profile.jpg" alt="Jamshed Ali" className="object-cover" />
+                <AvatarImage src="/images/profile.jpg" alt="Jamshed Ali" className="object-cover" />
                 <AvatarFallback className="text-5xl bg-gradient-primary text-primary-foreground">
-                  
+                  JA
                 </AvatarFallback>
               </Avatar>
               

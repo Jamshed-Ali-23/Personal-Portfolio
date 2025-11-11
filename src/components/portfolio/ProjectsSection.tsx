@@ -19,7 +19,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Scikit-learn", "XGBoost"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Titanic-dataset-Kaggle-Analysis-",
       liveUrl: "#",
-  image: "titanic.webp",
+  image: "/images/projects/titanic.webp",
       category: "Data Science"
     },
     {
@@ -29,7 +29,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "Seaborn", "Power BI"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Walmart-Sales-Analysis",
       liveUrl: "#",
-  image: "walmart.webp",
+  image: "/images/projects/walmart.webp",
       category: "Data Science"
     },
     {
@@ -39,7 +39,7 @@ export const ProjectsSection = () => {
       techStack: ["Power BI", "DAX", "Data Modeling", "SQL"],
       githubUrl: "https://github.com/Jamshed-Ali-23/Sales-Dashboard-PowerBI",
       liveUrl: "#",
-  image: "retail.webp",
+  image: "/images/projects/retail.webp",
       category: "Data Science"
     },
     {
@@ -49,7 +49,7 @@ export const ProjectsSection = () => {
       techStack: ["Python", "Pandas", "Matplotlib", "Power BI"],
       githubUrl: "https://github.com/Jamshed-Ali-23/-Customer-Segmentation-with-RFM-Analysis",
       liveUrl: "#",
-  image: "rfm.webp",
+  image: "/images/projects/rfm.webp",
       category: "Data Science"
     },
     {

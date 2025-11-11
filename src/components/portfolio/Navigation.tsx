@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export const Navigation = () => {
   const [activeSection, setActiveSection] = useState("hero");
@@ -19,9 +20,22 @@ export const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
+      
+      // Update active section based on scroll position
+      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
+      const scrollPosition = window.scrollY + 200;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navItems[i].id);
+          break;
+        }
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,49 +67,61 @@ export const Navigation = () => {
           </motion.div>
 
           <div className="hidden md:flex space-x-1">
-            {navItems.map((item) => (
-              <Button
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.id}
-                variant={activeSection === item.id ? "default" : "ghost"}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "bg-gradient-primary text-primary-foreground shadow-neon"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute inset-0 bg-gradient-primary rounded-md -z-10"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </Button>
+                <Button
+                  variant={activeSection === item.id ? "default" : "ghost"}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative transition-enhanced ${
+                    activeSection === item.id
+                      ? "bg-gradient-primary text-primary-foreground shadow-neon"
+                      : "text-muted-foreground hover:text-foreground hover:bg-primary/10"
+                  }`}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute inset-0 bg-gradient-primary rounded-md -z-10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </Button>
+              </motion.div>
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </Button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </Button>
+          </div>
         </div>
       </div>
     </motion.nav>

@@ -9,6 +9,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "localhost",
     port: 8080,
+    hmr: {
+      overlay: true
+    },
+    watch: {
+      usePolling: false,
+      interval: 100
+    }
   },
   plugins: [
     react(),
@@ -46,6 +53,11 @@ export default defineConfig(({ mode }) => ({
     minify: 'esbuild'
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'framer-motion']
+    include: ['react', 'react-dom', 'framer-motion'],
+    exclude: []
+  },
+  esbuild: {
+    target: 'esnext',
+    format: 'esm'
   }
 }));

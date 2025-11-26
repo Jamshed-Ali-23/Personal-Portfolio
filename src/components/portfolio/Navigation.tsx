@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export const Navigation = () => {
   const [activeSection, setActiveSection] = useState("hero");
@@ -99,8 +98,6 @@ export const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <ThemeToggle />
-            
             {/* Mobile menu button */}
             <Button
               variant="ghost"

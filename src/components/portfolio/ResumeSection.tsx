@@ -171,7 +171,7 @@ export const ResumeSection = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <motion.div
-                whileHover={{ x: 10 }}
+                whileHover={{ x: 5 }}
                 className="p-4 rounded-lg bg-slate-900/50 border border-cyan-400/10"
               >
                 <h4 className="font-semibold text-cyan-300 mb-2 flex items-center gap-2">
@@ -181,7 +181,7 @@ export const ResumeSection = () => {
               </motion.div>
               
               <motion.div
-                whileHover={{ x: 10 }}
+                whileHover={{ x: 5 }}
                 className="p-4 rounded-lg bg-slate-900/50 border border-cyan-400/10"
               >
                 <h4 className="font-semibold text-cyan-300 mb-2 flex items-center gap-2">
@@ -191,7 +191,7 @@ export const ResumeSection = () => {
               </motion.div>
               
               <motion.div
-                whileHover={{ x: 10 }}
+                whileHover={{ x: 5 }}
                 className="p-4 rounded-lg bg-slate-900/50 border border-cyan-400/10"
               >
                 <h4 className="font-semibold text-cyan-300 mb-2 flex items-center gap-2">
@@ -201,7 +201,7 @@ export const ResumeSection = () => {
               </motion.div>
               
               <motion.div
-                whileHover={{ x: 10 }}
+                whileHover={{ x: 5 }}
                 className="p-4 rounded-lg bg-slate-900/50 border border-cyan-400/10"
               >
                 <h4 className="font-semibold text-cyan-300 mb-2 flex items-center gap-2">

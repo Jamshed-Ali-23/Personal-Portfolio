@@ -1,127 +1,153 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+// Project Card Component - Problem -> Tech -> Solution Layout
+const ProjectCard = ({ project, index, delay }: any) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.6 }}
+    whileHover={{ y: -10 }}
+    className="group bg-slate-900/50 border border-cyan-400/20 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all"
+  >
+    {/* Header with category */}
+    <div className="bg-gradient-to-r from-cyan-900/30 to-sky-900/30 border-b border-cyan-400/20 px-6 py-4">
+      <h3 className="text-xl font-bold text-cyan-300">{project.title}</h3>
+    </div>
+
+    {/* Content - Problem / Tech / Solution */}
+    <div className="p-6 space-y-6">
+      {/* Problem */}
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center text-xs font-bold text-red-400">
+            ?
+          </div>
+          <h4 className="font-semibold text-slate-200">The Problem</h4>
+        </div>
+        <p className="text-slate-400 text-sm ml-8">{project.problem}</p>
+      </div>
+
+      {/* Tech Stack */}
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-500/50 flex items-center justify-center text-xs font-bold text-cyan-400">
+            ⚙️
+          </div>
+          <h4 className="font-semibold text-slate-200">Technologies Used</h4>
+        </div>
+        <div className="flex flex-wrap gap-2 ml-8">
+          {project.techStack.map((tech: string) => (
+            <Badge
+              key={tech}
+              className="px-3 py-1 text-xs bg-cyan-900/30 border border-cyan-400/50 text-cyan-200 hover:bg-cyan-900/50 hover:border-cyan-300"
+            >
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </div>
+
+      {/* Solution */}
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/50 flex items-center justify-center text-xs font-bold text-green-400">
+            ✓
+          </div>
+          <h4 className="font-semibold text-slate-200">The Solution</h4>
+        </div>
+        <p className="text-slate-400 text-sm ml-8">{project.solution}</p>
+      </div>
+
+      {/* Links */}
+      <div className="flex gap-3 pt-4 border-t border-cyan-400/10">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/10 flex-1"
+          asChild
+        >
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+            <Github className="w-4 h-4 mr-2" />
+            Code
+          </a>
+        </Button>
+        {project.liveUrl && project.liveUrl !== "#" && (
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/10 flex-1"
+            asChild
+          >
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Live Demo
+            </a>
+          </Button>
+        )}
+      </div>
+    </div>
+  </motion.div>
+);
 
 export const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
-
   const projects = [
-    // Data Science & Analytics Projects
     {
       id: 1,
-      title: "Titanic Survival Prediction",
-      description: "Performed EDA, feature engineering & ML modeling achieving 82% accuracy with Random Forest classifier.",
-      techStack: ["Python", "Pandas", "NumPy", "Seaborn", "Matplotlib", "Scikit-learn", "XGBoost"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Titanic-dataset-Kaggle-Analysis-",
-      liveUrl: "#",
-  image: "titanic.webp",
-      category: "Data Science"
+      title: "Asia Cup 2025 Predictor",
+      problem: "Accurately forecasting cricket match outcomes in the Asia Cup tournament based on historical powerplay statistics and real-time scenarios.",
+      techStack: ["Python", "Streamlit", "Machine Learning", "Scikit-learn"],
+      solution: "Built a predictive model analyzing historical powerplay data with real-time match simulations. Deployed on Streamlit Cloud for interactive predictions with live score integration.",
+      githubUrl: "https://github.com/Jamshed-Ali-23/Asia-Cup-2025-Predictor-Dashboard",
+      liveUrl: "#"
     },
     {
       id: 2,
-      title: "Walmart Sales Forecasting",
-      description: "Sales analysis & forecasting with interactive Power BI dashboard for data-driven decision making.",
-      techStack: ["Python", "Pandas", "Seaborn", "Power BI"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Walmart-Sales-Analysis",
-      liveUrl: "#",
-  image: "walmart.webp",
-      category: "Data Science"
+      title: "Customer Segmentation (RFM Analysis)",
+      problem: "Identifying high-value vs at-risk customer segments for targeted retention and marketing strategies in a competitive retail environment.",
+      techStack: ["Python", "Pandas", "K-Means Clustering", "Seaborn"],
+      solution: "Implemented unsupervised learning with K-Means clustering to segment customers into 'Champions', 'Loyal', and 'At-Risk' groups based on Recency, Frequency, and Monetary value metrics.",
+      githubUrl: "https://github.com/Jamshed-Ali-23/-Customer-Segmentation-with-RFM-Analysis",
+      liveUrl: "#"
     },
     {
       id: 3,
       title: "Retail Insights Dashboard",
-      description: "Built interactive Power BI dashboard with DAX & KPIs for comprehensive retail analytics.",
-      techStack: ["Power BI", "DAX", "Data Modeling", "SQL"],
+      problem: "Tracking complex retail KPIs across multiple product categories and time periods with manual reporting consuming 25+ hours monthly.",
+      techStack: ["Power BI", "DAX", "Power Query", "SQL"],
+      solution: "Engineered custom DAX measures for revenue trends, inventory tracking, and profit margin analysis. Automated data refresh reduced manual reporting by 20% with real-time KPI dashboards.",
       githubUrl: "https://github.com/Jamshed-Ali-23/Sales-Dashboard-PowerBI",
-      liveUrl: "#",
-  image: "retail.webp",
-      category: "Data Science"
+      liveUrl: "#"
     },
     {
       id: 4,
-      title: "Customer Segmentation (RFM)",
-      description: "Segmented customers into groups using RFM Analysis for targeted retention & marketing strategies.",
-      techStack: ["Python", "Pandas", "Matplotlib", "Power BI"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/-Customer-Segmentation-with-RFM-Analysis",
-      liveUrl: "#",
-  image: "rfm.webp",
-      category: "Data Science"
+      title: "Walmart Sales Forecasting",
+      problem: "Predicting future sales volumes to optimize inventory and staffing decisions across multiple Walmart store locations.",
+      techStack: ["Python", "Pandas", "NumPy", "Seaborn", "Power BI"],
+      solution: "Performed EDA to identify seasonal patterns and trends. Built time-series forecasting models and visualized insights in interactive Power BI dashboards for decision-makers.",
+      githubUrl: "https://github.com/Jamshed-Ali-23/Walmart-Sales-Analysis",
+      liveUrl: "#"
     },
     {
       id: 5,
-      title: "Asia Cup 2025 Predictor",
-      description: "Cricket outcome predictor deployed with Streamlit, using historical match data and ML models.",
-      techStack: ["Python", "Streamlit", "Scikit-learn", "Pandas"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Asia-Cup-2025-Predictor-Dashboard",
-      liveUrl: "#",
-  image: "asiacup.webp",
-      category: "Data Science"
+      title: "Titanic Survival Prediction",
+      problem: "Predicting passenger survival rates on the Titanic using historical passenger data with varying levels of data completeness.",
+      techStack: ["Python", "Scikit-learn", "Pandas", "Feature Engineering"],
+      solution: "Applied rigorous EDA and feature engineering to handle missing values. Trained ensemble models (Random Forest, XGBoost) achieving 82% accuracy. Deployed on Kaggle with detailed documentation.",
+      githubUrl: "https://github.com/Jamshed-Ali-23/Titanic-dataset-Kaggle-Analysis-",
+      liveUrl: "#"
     },
     {
       id: 6,
-      title: "Multivariable Calculus Tool",
-      description: "Interactive app to visualize gradient descent & optimization concepts in calculus.",
-      techStack: ["Python", "SymPy", "NumPy", "Plotly", "Streamlit"],
+      title: "Multivariable Calculus Visualizer",
+      problem: "Making complex mathematical concepts like gradient descent and multivariable calculus intuitive for learning through interactive visualization.",
+      techStack: ["Python", "SymPy", "Plotly", "Streamlit"],
+      solution: "Built an interactive web app using Streamlit that visualizes 3D gradients, partial derivatives, and optimization algorithms with real-time parameter adjustment.",
       githubUrl: "https://github.com/Jamshed-Ali-23/MVC-Graph-Plotter",
-      liveUrl: "#",
-  image: "calculus.webp",
-      category: "Data Science"
-    },
-    // Frontend Development Projects
-    {
-      id: 7,
-      title: "Business Nexus",
-      description: "Business management solution with task & project tracking capabilities.",
-      techStack: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Nexus",
-      liveUrl: "#",
-  image: "business.webp",
-      category: "Web App"
-    },
-    {
-      id: 8,
-      title: "CricketVerse PSL Dream XI",
-      description: "Semester project: fantasy cricket app with live match simulation functionality.",
-      techStack: ["Blazor WebAssembly", "Bootstrap", "EF Core", "C#"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/CricketVerse-PSL-DreamXI",
-      liveUrl: "#",
-  image: "dream xi.webp",
-      category: "Web App"
-    },
-    {
-      id: 9,
-      title: "Advanced Music Player",
-      description: "Responsive music player with playlist management, audio controls & autoplay features.",
-      techStack: ["HTML", "CSS", "JavaScript", "Web Audio API"],
-      githubUrl: "https://github.com/Jamshed-Ali-23/Music-Player",
-      liveUrl: "#",
-  image: "music player.webp",
-      category: "Web App"
-    },
-    {
-      id: 10,
-      title: "Responsive Image Gallery",
-      description: "Minimalist, mobile-friendly gallery using CSS Grid & JavaScript for smooth interactions.",
-      techStack: ["HTML", "CSS", "JavaScript", "CSS Grid"],
-    githubUrl: "https://github.com/Jamshed-Ali-23/Image-Gallery",
-    liveUrl: "#",
-  image: "image gallery.webp",
-    category: "Web App"
-    },
-    {
-      id: 11,
-      title: "E-Commerce Website",
-      description: "Internship project: fully responsive desktop shopping website with modern UI.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-    githubUrl: "https://github.com/Jamshed-Ali-23/ecommerce-website",
-    liveUrl: "#",
-  image: "e commerece.webp",
-    category: "Web App"
+      liveUrl: "#"
     }
   ];
 
@@ -135,7 +161,7 @@ export const ProjectsSection = () => {
     }
   };
 
-  const projectVariants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -147,15 +173,12 @@ export const ProjectsSection = () => {
     }
   };
 
-  // Filter projects by category
-  const [filter, setFilter] = useState<string>("All");
-  
-  const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
   return (
-    <section id="projects" className="py-20 relative" ref={ref}>
+    <section id="projects" className="py-20 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 -left-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl -z-10" />
+
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -164,126 +187,56 @@ export const ProjectsSection = () => {
           variants={containerVariants}
           className="max-w-7xl mx-auto"
         >
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {["All", "Data Science", "Web App"].map((category) => (
-              <Button
-                key={category}
-                variant={filter === category ? "default" : "outline"}
-                onClick={() => setFilter(category)}
-                className={`${filter === category ? "bg-primary text-primary-foreground" : "bg-background text-foreground"} transition-all duration-300`}
-              >
-                {category}
-              </Button>
-            ))}  
-          </div>
           {/* Section Title */}
-          <motion.div variants={projectVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-secondary bg-clip-text text-transparent">
-              Featured Projects
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
+                Featured Data Science Projects
+              </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Showcasing my latest work in data science and web development
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              Case studies demonstrating my ability to identify business problems, select appropriate technologies, and deliver data-driven solutions.
             </p>
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid - 3 columns on desktop, 1 on mobile */}
           <motion.div
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project, index) => (
-              <motion.div
+            {projects.map((project, index) => (
+              <ProjectCard
                 key={project.id}
-                variants={projectVariants}
-                initial={{ opacity: 0, y: 100, rotateX: 45 }}
-                animate={{ 
-                  opacity: isVisible ? 1 : 0, 
-                  y: isVisible ? 0 : 100,
-                  rotateX: isVisible ? 0 : 45
-                }}
-                transition={{ 
-                  delay: index * 0.2,
-                  duration: 0.8,
-                  type: "spring",
-                  damping: 12
-                }}
-                whileHover={{ 
-                  y: -15, 
-                  rotateY: 8,
-                  rotateX: -5,
-                  scale: 1.02
-                }}
-                className="group perspective-1000 hover-tilt"
-              >
-                <Card className="h-full overflow-hidden rounded-lg shadow-lg transform transition-all hover:-translate-y-3 hover:shadow-2xl">
-                  <div className="relative">
-                          {(() => {
-                            const defaultImg = `${import.meta.env.BASE_URL}placeholder.svg`;
-                            let imgSrc = defaultImg;
-                            if (project.image) {
-                              if (project.image.startsWith("/")) {
-                                imgSrc = `${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`;
-                              } else {
-                                imgSrc = `${import.meta.env.BASE_URL}project-images/${project.image}`;
-                              }
-                            }
-
-                            return (
-                              <img
-                                src={imgSrc}
-                                alt={project.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-48 md:h-56 object-cover"
-                              />
-                            );
-                          })()}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute left-4 bottom-4 text-white">
-                      <div className="text-sm font-semibold bg-black/50 px-3 py-1 rounded">{project.category}</div>
-                    </div>
-                  </div>
-
-                  <CardContent className="p-5">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-lg font-bold">{project.title}</CardTitle>
-                        <p className="text-sm text-muted-foreground mt-2 line-clamp-3">{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mt-3">
-                          {project.techStack.slice(0,4).map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="ml-4 flex-shrink-0">
-                        <Button asChild size="sm" variant="outline" className="flex items-center">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                project={project}
+                index={index}
+                delay={index * 0.1}
+              />
             ))}
           </motion.div>
 
-          {/* View More Button */}
+          {/* CTA for more projects */}
           <motion.div
-            variants={projectVariants}
-            className="text-center mt-12"
+            variants={itemVariants}
+            className="text-center mt-16"
           >
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-accent/50 text-accent hover:bg-accent/10 hover:shadow-glow px-8 py-6"
+            <p className="text-slate-300 mb-6">
+              Explore more projects on my GitHub, including additional case studies in data visualization, SQL optimization, and machine learning.
+            </p>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              View All Projects
-              <ExternalLink className="w-5 h-5 ml-2" />
-            </Button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 text-white font-bold px-10 py-6 text-lg shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300"
+                asChild
+              >
+                <a href="https://github.com/Jamshed-Ali-23" target="_blank" rel="noopener noreferrer">
+                  View All Projects on GitHub
+                  <ExternalLink className="w-5 h-5 ml-2" />
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

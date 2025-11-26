@@ -1,27 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Code, Smartphone, Cloud, Brain, Wrench } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { GraduationCap, BookOpen, Target, Lightbulb } from "lucide-react";
 
 export const AboutSection = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-  
-  const technologies = [
-    { name: "Python", icon: "🐍", category: "Data Science" },
-    { name: "TensorFlow", icon: "🧠", category: "Data Science" },
-    { name: "Pandas", icon: "📊", category: "Data Science" },
-    { name: "Scikit-learn", icon: "🔬", category: "Data Science" },
-    { name: "HTML", icon: "🌐", category: "Frontend" },
-    { name: "CSS", icon: "🎨", category: "Frontend" },
-    { name: "JavaScript", icon: "⚡", category: "Frontend" },
-    { name: "React", icon: "⚛️", category: "Frontend" },
-    { name: "Data Visualization", icon: "📈", category: "Data Science" },
-    { name: "SQL", icon: "🗃️", category: "Data Science" },
-    { name: "AWS", icon: "☁️", category: "Cloud" },
-    { name: "Jupyter", icon: "📓", category: "Data Science" },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -45,8 +25,19 @@ export const AboutSection = () => {
     }
   };
 
+  const coursework = [
+    { title: "Linear Algebra", description: "Matrices, eigenvalues, and vector spaces" },
+    { title: "Probability & Statistics", description: "Distributions, hypothesis testing, and inference" },
+    { title: "Calculus I & II", description: "Differentiation, integration, and optimization" },
+    { title: "Discrete Mathematics", description: "Logic, sets, graphs, and combinatorics" }
+  ];
+
   return (
-    <section id="about" className="py-20 relative" ref={ref}>
+    <section id="about" className="py-20 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -z-10" />
+
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -57,177 +48,149 @@ export const AboutSection = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-              About Me
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
+                About Me
+              </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Data scientist and frontend developer focused on building data-driven web applications and interactive visualizations.
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              Data Analytics professional with a strong mathematical foundation, transitioning into Data Science with a unique edge in interactive React dashboards.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Info */}
-            <motion.div 
-              variants={itemVariants}
-              className="card-hover hover-lift"
-            >
-              <Card className="bg-gradient-glass backdrop-blur-md border-border/50 shadow-glass overflow-hidden group hover:shadow-elegant transition-all duration-700 relative">{" "}
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-primary"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: isVisible ? 1 : 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    {/* Location */}
-                    <div className="flex items-center space-x-3">
-                      <div className="p-3 rounded-full bg-primary/20">
-                        <MapPin className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold">Based in</h3>
-                        <p className="text-muted-foreground">Islamabad, Pakistan</p>
-                      </div>
-                    </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left side - Personal Statement & Education */}
+            <motion.div variants={itemVariants}>
+              <div className="space-y-8">
+                {/* Personal Statement */}
+                <div className="bg-slate-900/50 border border-cyan-400/20 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-cyan-300 mb-4 flex items-center gap-2">
+                    <Target className="w-6 h-6" />
+                    Who I Am
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed mb-4">
+                    I'm a Data Analytics Intern at <span className="text-cyan-300 font-semibold">Elevvo Pathways</span>, currently pursuing a <span className="text-cyan-300 font-semibold">BSCS degree at Air University, Islamabad</span>. My passion lies in transforming raw data into actionable insights through statistical analysis, machine learning, and interactive dashboards.
+                  </p>
+                  <p className="text-slate-300 leading-relaxed">
+                    What makes me unique is my ability to bridge data science and frontend development—I don't just analyze data, I visualize it beautifully and deploy it via React dashboards and Streamlit applications. This combination of skills positions me to create end-to-end data solutions that are both analytically rigorous and user-friendly.
+                  </p>
+                </div>
 
-                    {/* Description */}
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-bold bg-gradient-secondary bg-clip-text text-transparent">
-                        Data Scientist & Frontend Developer
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        I combine data science and frontend engineering to build intuitive, data-driven applications.
-                        I design and deploy ML models, create interactive dashboards and visualizations, and craft responsive UIs using modern web technologies.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed">
-                        My work ranges from exploratory data analysis and predictive modeling to building polished frontend experiences with React, TypeScript, and Tailwind.
-                        I prioritize clear visuals, fast interactions, and reproducible data workflows.
-                      </p>
-                    </div>
-
-                    {/* Experience Highlights */}
-                    <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border/50">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-primary">3+</div>
-                        <div className="text-sm text-muted-foreground">Years Experience</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-secondary">50+</div>
-                        <div className="text-sm text-muted-foreground">Projects Built</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-accent">12+</div>
-                        <div className="text-sm text-muted-foreground">Technologies</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                {/* Education */}
+                <div className="bg-slate-900/50 border border-cyan-400/20 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-2">
+                    <GraduationCap className="w-6 h-6" />
+                    Education
+                  </h3>
+                  
+                  <motion.div
+                    whileHover={{ x: 10 }}
+                    className="p-4 rounded-lg bg-cyan-900/20 border border-cyan-400/10"
+                  >
+                    <h4 className="text-lg font-semibold text-cyan-300 mb-1">Bachelor of Science in Computer Science</h4>
+                    <p className="text-slate-300 mb-2">Air University, Islamabad, Pakistan</p>
+                    <p className="text-sm text-slate-400">Current | Expected Graduation: 2026</p>
+                  </motion.div>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Right side - Tech Stack */}
-            <motion.div 
-              variants={itemVariants}
-              className="card-hover hover-lift"
-            >
-              <Card className="bg-gradient-glass backdrop-blur-md border-border/50 shadow-glass overflow-hidden group hover:shadow-elegant transition-all duration-700 relative">
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-secondary"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: isVisible ? 1 : 0 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                />
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
-                      Tech Expertise
-                    </h3>
-                    
-                    <div className="grid grid-cols-2 gap-4">
-                      {technologies.map((tech, index) => (
-                        <motion.div
-                          key={tech.name}
-                          initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
-                          animate={{ 
-                            opacity: isVisible ? 1 : 0, 
-                            scale: isVisible ? 1 : 0.8,
-                            rotateY: isVisible ? 0 : 90
-                          }}
-                          transition={{ 
-                            delay: index * 0.1 + 1, 
-                            duration: 0.6,
-                            type: "spring",
-                            damping: 15
-                          }}
-                          whileHover={{ 
-                            scale: 1.08, 
-                            y: -8,
-                            rotateX: 5
-                          }}
-                          className="group magnetic"
-                        >
-                          <Badge
-                            variant="secondary"
-                            className="w-full justify-start py-4 px-5 bg-muted/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-500 cursor-pointer relative overflow-hidden backdrop-blur-sm"
-                          >
-                            <motion.div
-                              className="absolute inset-0 bg-gradient-primary/10"
-                              initial={{ x: "-100%" }}
-                              whileHover={{ x: "100%" }}
-                              transition={{ duration: 0.8 }}
-                            />
-                            <motion.span 
-                              className="text-2xl mr-3 relative z-10"
-                              whileHover={{ 
-                                scale: 1.2,
-                                rotate: [0, -10, 10, 0]
-                              }}
-                              transition={{ 
-                                type: "spring",
-                                damping: 10
-                              }}
-                            >
-                              {tech.icon}
-                            </motion.span>
-                            <div className="text-left relative z-10">
-                              <div className="font-semibold">{tech.name}</div>
-                              <div className="text-xs text-muted-foreground">
-                                {tech.category}
-                              </div>
-                            </div>
-                          </Badge>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Specialties */}
-                    <div className="pt-6 border-t border-border/50 space-y-4">
-                      <h4 className="text-lg font-semibold text-primary">Specializing In:</h4>
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-3">
-                          <Brain className="w-5 h-5 text-primary" />
-                          <span>Machine Learning & Data Analysis</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <Code className="w-5 h-5 text-secondary" />
-                          <span>Interactive Frontend Development</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <Wrench className="w-5 h-5 text-accent" />
-                          <span>Data Visualization & Dashboards</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <Cloud className="w-5 h-5 text-primary" />
-                          <span>Cloud-based Data Solutions</span>
-                        </div>
-                      </div>
-                    </div>
+            {/* Right side - Relevant Coursework & Strengths */}
+            <motion.div variants={itemVariants}>
+              <div className="space-y-8">
+                {/* Relevant Coursework */}
+                <div className="bg-slate-900/50 border border-cyan-400/20 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-2">
+                    <BookOpen className="w-6 h-6" />
+                    Relevant Coursework
+                  </h3>
+                  
+                  <div className="space-y-3">
+                    {coursework.map((course, index) => (
+                      <motion.div
+                        key={course.title}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="p-3 rounded-lg bg-cyan-900/20 border border-cyan-400/10 hover:border-cyan-400/30 transition-all"
+                      >
+                        <h4 className="font-semibold text-cyan-300">{course.title}</h4>
+                        <p className="text-sm text-slate-400">{course.description}</p>
+                      </motion.div>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
+                  
+                  <div className="mt-4 p-3 rounded-lg bg-green-900/20 border border-green-400/20">
+                    <p className="text-sm text-green-300 flex items-start gap-2">
+                      <span className="mt-0.5">✓</span>
+                      <span>Strong mathematical foundation ideal for advanced ML, statistical modeling, and data-driven decision-making.</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Key Strengths */}
+                <div className="bg-slate-900/50 border border-cyan-400/20 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-2">
+                    <Lightbulb className="w-6 h-6" />
+                    Key Strengths
+                  </h3>
+                  
+                  <div className="space-y-3">
+                    <motion.div
+                      whileHover={{ x: 10 }}
+                      className="p-3 rounded-lg bg-cyan-900/20 border border-cyan-400/10"
+                    >
+                      <p className="text-cyan-300 font-semibold">📊 Data Storytelling</p>
+                      <p className="text-sm text-slate-400">Translate complex data into clear narratives for stakeholders.</p>
+                    </motion.div>
+                    
+                    <motion.div
+                      whileHover={{ x: 10 }}
+                      className="p-3 rounded-lg bg-cyan-900/20 border border-cyan-400/10"
+                    >
+                      <p className="text-cyan-300 font-semibold">🚀 Full-Stack Analytics</p>
+                      <p className="text-sm text-slate-400">From SQL queries to interactive Dashboards and React apps.</p>
+                    </motion.div>
+                    
+                    <motion.div
+                      whileHover={{ x: 10 }}
+                      className="p-3 rounded-lg bg-cyan-900/20 border border-cyan-400/10"
+                    >
+                      <p className="text-cyan-300 font-semibold">🎯 Problem-Solving</p>
+                      <p className="text-sm text-slate-400">Approach every challenge with curiosity, analytical rigor, and creativity.</p>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
+
+          {/* Stats Section */}
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6 bg-slate-900/50 border border-cyan-400/20 rounded-xl"
+            >
+              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-sky-300 bg-clip-text text-transparent mb-2">3+</div>
+              <div className="text-slate-300">Programming Languages</div>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6 bg-slate-900/50 border border-cyan-400/20 rounded-xl"
+            >
+              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-sky-300 bg-clip-text text-transparent mb-2">18+</div>
+              <div className="text-slate-300">Data & Analytics Tools</div>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-center p-6 bg-slate-900/50 border border-cyan-400/20 rounded-xl"
+            >
+              <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-sky-300 bg-clip-text text-transparent mb-2">5+</div>
+              <div className="text-slate-300">Major Projects Delivered</div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

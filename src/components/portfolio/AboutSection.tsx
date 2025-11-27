@@ -1,54 +1,54 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, Target, Lightbulb, Sparkles } from "lucide-react";
 
-// Stat Card - Clean dark style
+// Stat Card - Clean dark style with warm colors
 const StatCard = ({ value, label, delay }: { value: string; label: string; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
     whileInView={{ opacity: 1, scale: 1 }}
     whileHover={{ scale: 1.05 }}
     transition={{ delay, type: "spring", stiffness: 200, damping: 15 }}
-    className="text-center p-8 bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl hover:border-cyan-400/40 transition-all"
+    className="text-center p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
   >
-    <div className="text-5xl font-bold bg-gradient-to-r from-cyan-300 to-sky-400 bg-clip-text text-transparent mb-2">
+    <div className="text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-2">
       {value}
     </div>
-    <div className="text-slate-300">{label}</div>
+    <div className="text-stone-300">{label}</div>
   </motion.div>
 );
 
-// Coursework Item - Clean dark style
+// Coursework Item - Clean dark style with warm colors
 const CourseworkItem = ({ course, index }: any) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     whileHover={{ x: 5, scale: 1.02 }}
     transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
-    className="p-4 rounded-xl bg-cyan-900/20 border border-cyan-400/10 hover:border-cyan-400/30 transition-all group"
+    className="p-4 rounded-xl bg-amber-900/20 border border-amber-400/10 hover:border-amber-400/30 transition-all group"
   >
-    <h4 className="font-semibold text-cyan-300 group-hover:text-cyan-200 transition-colors">
+    <h4 className="font-semibold text-amber-300 group-hover:text-amber-200 transition-colors">
       {course.title}
     </h4>
-    <p className="text-sm text-slate-400">
+    <p className="text-sm text-stone-400">
       {course.description}
     </p>
   </motion.div>
 );
 
-// Strength Item - Clean dark style
+// Strength Item - Clean dark style with warm colors
 const StrengthItem = ({ icon, title, description, delay }: any) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     whileHover={{ x: 5, scale: 1.02 }}
     transition={{ delay, type: "spring", stiffness: 200 }}
-    className="p-4 rounded-xl bg-cyan-900/20 border border-cyan-400/10 hover:border-cyan-400/30 transition-all group"
+    className="p-4 rounded-xl bg-amber-900/20 border border-amber-400/10 hover:border-amber-400/30 transition-all group"
   >
-    <p className="text-cyan-300 font-semibold flex items-center gap-2">
+    <p className="text-amber-300 font-semibold flex items-center gap-2">
       <span>{icon}</span>
       {title}
     </p>
-    <p className="text-sm text-slate-400 mt-1">
+    <p className="text-sm text-stone-400 mt-1">
       {description}
     </p>
   </motion.div>
@@ -88,8 +88,8 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -102,11 +102,11 @@ export const AboutSection = () => {
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 About Me
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto">
               Data Analytics professional with a strong mathematical foundation, transitioning into Data Science with a unique edge in interactive React dashboards.
             </p>
           </motion.div>
@@ -117,16 +117,16 @@ export const AboutSection = () => {
               {/* Personal Statement Card */}
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all"
+                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
               >
-                <h3 className="text-2xl font-bold text-cyan-300 mb-4 flex items-center gap-3">
+                <h3 className="text-2xl font-bold text-amber-300 mb-4 flex items-center gap-3">
                   <Target className="w-6 h-6" />
                   Who I Am
                 </h3>
-                <p className="text-slate-300 leading-relaxed mb-4">
-                  I'm a Data Analytics Intern at <span className="text-cyan-300 font-semibold">Elevvo Pathways</span>, currently pursuing a <span className="text-cyan-300 font-semibold">BSCS degree at Air University, Islamabad</span>. My passion lies in transforming raw data into actionable insights through statistical analysis, machine learning, and interactive dashboards.
+                <p className="text-stone-300 leading-relaxed mb-4">
+                  I'm a Data Analytics Intern at <span className="text-amber-300 font-semibold">Elevvo Pathways</span>, currently pursuing a <span className="text-amber-300 font-semibold">BSCS degree at Air University, Islamabad</span>. My passion lies in transforming raw data into actionable insights through statistical analysis, machine learning, and interactive dashboards.
                 </p>
-                <p className="text-slate-300 leading-relaxed">
+                <p className="text-stone-300 leading-relaxed">
                   What makes me unique is my ability to bridge data science and frontend development—I don't just analyze data, I visualize it beautifully and deploy it via React dashboards and Streamlit applications. This combination of skills positions me to create end-to-end data solutions that are both analytically rigorous and user-friendly.
                 </p>
               </motion.div>
@@ -134,22 +134,22 @@ export const AboutSection = () => {
               {/* Education Card */}
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all"
+                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
               >
-                <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-3">
+                <h3 className="text-2xl font-bold text-amber-300 mb-6 flex items-center gap-3">
                   <GraduationCap className="w-6 h-6" />
                   Education
                 </h3>
                 
                 <motion.div
                   whileHover={{ x: 5 }}
-                  className="p-5 rounded-xl bg-cyan-900/30 border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
+                  className="p-5 rounded-xl bg-amber-900/30 border border-amber-400/20 hover:border-amber-400/40 transition-all"
                 >
-                  <h4 className="text-lg font-semibold text-cyan-300 mb-1">Bachelor of Science in Computer Science</h4>
-                  <p className="text-slate-300 mb-2">Air University, Islamabad, Pakistan</p>
-                  <p className="text-sm text-slate-400 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-cyan-400" />
-                    Current | Expected Graduation: 2026
+                  <h4 className="text-lg font-semibold text-amber-300 mb-1">Bachelor of Science in Computer Science</h4>
+                  <p className="text-stone-300 mb-2">Air University, Islamabad, Pakistan</p>
+                  <p className="text-sm text-stone-400 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    Current | Expected Graduation: 2027
                   </p>
                 </motion.div>
               </motion.div>
@@ -160,9 +160,9 @@ export const AboutSection = () => {
               {/* Relevant Coursework Card */}
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all"
+                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
               >
-                <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-3">
+                <h3 className="text-2xl font-bold text-amber-300 mb-6 flex items-center gap-3">
                   <BookOpen className="w-6 h-6" />
                   Relevant Coursework
                 </h3>
@@ -187,9 +187,9 @@ export const AboutSection = () => {
               {/* Key Strengths Card */}
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all"
+                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
               >
-                <h3 className="text-2xl font-bold text-cyan-300 mb-6 flex items-center gap-3">
+                <h3 className="text-2xl font-bold text-amber-300 mb-6 flex items-center gap-3">
                   <Lightbulb className="w-6 h-6" />
                   Key Strengths
                 </h3>

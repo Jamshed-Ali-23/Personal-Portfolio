@@ -8,43 +8,43 @@ All colors MUST be HSL for consistency.
 
 @layer base {
   :root {
-    /* Dark Theme - Modern dark base with better contrast */
-    --background: 240 20% 4%;
-    --foreground: 0 0% 98%;
+    /* Dark Theme - Warm dark base with better contrast */
+    --background: 20 14% 4%;
+    --foreground: 30 15% 95%;
 
-    /* Glass card colors with transparency */
-    --card: 240 20% 8%;
-    --card-foreground: 0 0% 98%;
+    /* Glass card colors with warm transparency */
+    --card: 20 10% 8%;
+    --card-foreground: 30 15% 95%;
 
-    --popover: 240 20% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 20 10% 8%;
+    --popover-foreground: 30 15% 95%;
 
-    /* Vibrant cyan primary - more modern */
-    --primary: 188 94% 58%;
-    --primary-foreground: 240 20% 4%;
-    --primary-glow: 188 94% 68%;
+    /* Warm amber primary - aesthetic */
+    --primary: 38 92% 50%;
+    --primary-foreground: 20 14% 4%;
+    --primary-glow: 38 92% 60%;
 
-    /* Rich purple secondary */
-    --secondary: 262 83% 58%;
+    /* Warm rose/terracotta secondary */
+    --secondary: 15 75% 55%;
     --secondary-foreground: 0 0% 98%;
-    --secondary-glow: 262 83% 68%;
+    --secondary-glow: 15 75% 65%;
 
-    /* Muted dark tones */
-    --muted: 240 15% 12%;
-    --muted-foreground: 240 5% 65%;
+    /* Muted warm tones */
+    --muted: 20 10% 12%;
+    --muted-foreground: 30 10% 60%;
 
-    /* Vibrant pink accent */
-    --accent: 330 81% 60%;
-    --accent-foreground: 240 20% 4%;
-    --accent-glow: 330 81% 70%;
+    /* Warm copper/bronze accent */
+    --accent: 25 85% 55%;
+    --accent-foreground: 20 14% 4%;
+    --accent-glow: 25 85% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Glass borders and inputs */
-    --border: 240 20% 18%;
-    --input: 240 15% 15%;
-    --ring: 188 94% 58%;
+    /* Warm glass borders and inputs */
+    --border: 30 15% 18%;
+    --input: 20 10% 15%;
+    --ring: 38 92% 50%;
 
     --radius: 1rem;
     

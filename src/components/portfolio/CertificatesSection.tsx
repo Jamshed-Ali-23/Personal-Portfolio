@@ -117,7 +117,7 @@ export const CertificatesSection = (): JSX.Element => {
         >
           {/* Section Title */}
           <motion.div variants={certificateVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-secondary bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
               Certificates & Achievements
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

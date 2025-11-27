@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
-// Tech Badge Component - Clean dark style
+// Tech Badge Component - Clean dark style with warm colors
 const TechBadge = ({ name, delay }: { name: string; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
@@ -9,13 +9,13 @@ const TechBadge = ({ name, delay }: { name: string; delay: number }) => (
     whileHover={{ scale: 1.05, y: -3 }}
     transition={{ delay, type: "spring", damping: 15, stiffness: 200 }}
   >
-    <Badge className="px-4 py-2 text-sm bg-cyan-900/40 border border-cyan-400/50 text-cyan-200 hover:bg-cyan-800/50 hover:border-cyan-300 cursor-pointer transition-all">
+    <Badge className="px-4 py-2 text-sm bg-amber-900/40 border border-amber-400/50 text-amber-200 hover:bg-amber-800/50 hover:border-amber-300 cursor-pointer transition-all">
       {name}
     </Badge>
   </motion.div>
 );
 
-// Category Card Component - Clean dark style
+// Category Card Component - Clean dark style with warm colors
 const CategoryCard = ({ title, description, badges, delay, icon }: any) => {
   return (
     <motion.div
@@ -23,7 +23,7 @@ const CategoryCard = ({ title, description, badges, delay, icon }: any) => {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ delay, duration: 0.5 }}
-      className="group relative bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all"
+      className="group relative bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
     >
       {/* Icon & Title */}
       <motion.div 
@@ -34,9 +34,9 @@ const CategoryCard = ({ title, description, badges, delay, icon }: any) => {
         {icon}
       </motion.div>
       
-      <h3 className="text-2xl font-bold text-cyan-300 mb-3">{title}</h3>
+      <h3 className="text-2xl font-bold text-amber-300 mb-3">{title}</h3>
       
-      <p className="text-slate-400 mb-6 leading-relaxed">
+      <p className="text-stone-400 mb-6 leading-relaxed">
         {description}
       </p>
       
@@ -49,35 +49,35 @@ const CategoryCard = ({ title, description, badges, delay, icon }: any) => {
   );
 };
 
-// Stats Card - Clean dark style
+// Stats Card - Clean dark style with warm colors
 const StatCard = ({ value, label, delay }: { value: string; label: string; delay: number }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
     whileInView={{ opacity: 1, scale: 1 }}
     whileHover={{ scale: 1.05 }}
     transition={{ delay, type: "spring", stiffness: 200, damping: 15 }}
-    className="text-center p-8 bg-gradient-to-br from-slate-900/80 to-slate-800/50 border border-cyan-400/20 rounded-2xl hover:border-cyan-400/40 transition-all"
+    className="text-center p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
   >
-    <div className="text-5xl font-bold bg-gradient-to-r from-cyan-300 to-sky-400 bg-clip-text text-transparent mb-2">
+    <div className="text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-2">
       {value}
     </div>
-    <div className="text-slate-300">{label}</div>
+    <div className="text-stone-300">{label}</div>
   </motion.div>
 );
 
-// Strength Card - Clean dark style
+// Strength Card - Clean dark style with warm colors
 const StrengthCard = ({ icon, title, description, delay }: any) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     whileHover={{ x: 5, scale: 1.02 }}
     transition={{ delay, type: "spring", stiffness: 200, damping: 20 }}
-    className="flex items-start gap-4 p-5 rounded-xl bg-slate-900/60 border border-cyan-400/10 hover:border-cyan-400/30 transition-all group"
+    className="flex items-start gap-4 p-5 rounded-xl bg-stone-900/60 border border-amber-400/10 hover:border-amber-400/30 transition-all group"
   >
     <div className="text-3xl mt-1">{icon}</div>
     <div>
-      <h4 className="font-semibold text-cyan-300 mb-1 group-hover:text-cyan-200 transition-colors">{title}</h4>
-      <p className="text-slate-400 text-sm">{description}</p>
+      <h4 className="font-semibold text-amber-300 mb-1 group-hover:text-amber-200 transition-colors">{title}</h4>
+      <p className="text-stone-400 text-sm">{description}</p>
     </div>
   </motion.div>
 );
@@ -118,8 +118,8 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -132,11 +132,11 @@ export const SkillsSection = () => {
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 Technical Expertise
               </span>
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-stone-300 max-w-3xl mx-auto">
               A comprehensive toolkit for transforming raw data into actionable insights. Specialized in Python, SQL, and Power BI with a unique edge in interactive React dashboards.
             </p>
           </motion.div>
@@ -178,9 +178,9 @@ export const SkillsSection = () => {
           {/* Key Strengths */}
           <motion.div 
             variants={itemVariants} 
-            className="bg-gradient-to-br from-cyan-900/20 via-slate-900/50 to-sky-900/20 border border-cyan-400/20 rounded-3xl p-10"
+            className="bg-gradient-to-br from-amber-900/20 via-stone-900/50 to-orange-900/20 border border-amber-400/20 rounded-3xl p-10"
           >
-            <h3 className="text-3xl font-bold text-cyan-300 mb-8">
+            <h3 className="text-3xl font-bold text-amber-300 mb-8">
               Key Strengths
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

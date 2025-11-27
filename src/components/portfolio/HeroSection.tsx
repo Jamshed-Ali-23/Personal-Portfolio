@@ -6,8 +6,8 @@ import { ChevronDown, ArrowRight, Download, Github, Linkedin, Mail, Sparkles, Da
 // Animated Background Grid
 const GridBackground = () => (
   <div className="absolute inset-0 -z-10">
-    <div className="absolute inset-0 bg-[linear-gradient(to_right,#0ea5e910_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e910_1px,transparent_1px)] bg-[size:60px_60px]" />
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950" />
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,#d9731510_1px,transparent_1px),linear-gradient(to_bottom,#d9731510_1px,transparent_1px)] bg-[size:60px_60px]" />
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-stone-950" />
   </div>
 );
 
@@ -36,10 +36,10 @@ const TechBadge = ({ icon: Icon, label, delay }: { icon: any; label: string; del
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay, duration: 0.5 }}
     whileHover={{ scale: 1.05, y: -5 }}
-    className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-700/50 rounded-full backdrop-blur-sm"
+    className="flex items-center gap-2 px-4 py-2 bg-stone-800/50 border border-stone-700/50 rounded-full backdrop-blur-sm"
   >
-    <Icon className="w-4 h-4 text-cyan-400" />
-    <span className="text-sm text-slate-300">{label}</span>
+    <Icon className="w-4 h-4 text-amber-400" />
+    <span className="text-sm text-stone-300">{label}</span>
   </motion.div>
 );
 
@@ -51,10 +51,10 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
     transition={{ delay, duration: 0.5, type: "spring" }}
     className="text-center"
   >
-    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
       {value}
     </div>
-    <div className="text-sm text-slate-400 mt-1">{label}</div>
+    <div className="text-sm text-stone-400 mt-1">{label}</div>
   </motion.div>
 );
 
@@ -100,13 +100,13 @@ export const HeroSection = () => {
       id="hero" 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-stone-950"
     >
       {/* Background Effects */}
       <GridBackground />
-      <FloatingOrb className="w-[600px] h-[600px] bg-cyan-500/20 top-[-200px] left-[-200px]" delay={0} />
-      <FloatingOrb className="w-[500px] h-[500px] bg-blue-500/15 bottom-[-150px] right-[-150px]" delay={2} />
-      <FloatingOrb className="w-[300px] h-[300px] bg-purple-500/10 top-[40%] right-[10%]" delay={4} />
+      <FloatingOrb className="w-[600px] h-[600px] bg-amber-500/20 top-[-200px] left-[-200px]" delay={0} />
+      <FloatingOrb className="w-[500px] h-[500px] bg-orange-500/15 bottom-[-150px] right-[-150px]" delay={2} />
+      <FloatingOrb className="w-[300px] h-[300px] bg-rose-500/10 top-[40%] right-[10%]" delay={4} />
 
       {/* Main Content */}
       <motion.div 
@@ -127,13 +127,13 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              <span className="text-sm text-cyan-300">Available for opportunities</span>
+              <span className="text-sm text-amber-300">Available for opportunities</span>
             </motion.div>
 
             {/* Name & Title */}
@@ -145,7 +145,7 @@ export const HeroSection = () => {
                 className="text-5xl md:text-6xl lg:text-7xl font-bold"
               >
                 <span className="text-white">Hi, I'm </span>
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 bg-clip-text text-transparent">
                   Jamshed Ali
                 </span>
               </motion.h1>
@@ -170,11 +170,11 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg text-slate-400 leading-relaxed max-w-xl"
+              className="text-lg text-stone-400 leading-relaxed max-w-xl"
             >
               I transform complex data into actionable insights. Specializing in 
-              <span className="text-cyan-400 font-medium"> Python, Power BI, SQL</span>, and 
-              <span className="text-cyan-400 font-medium"> Machine Learning</span> with a unique edge in 
+              <span className="text-amber-400 font-medium"> Python, Power BI, SQL</span>, and 
+              <span className="text-amber-400 font-medium"> Machine Learning</span> with a unique edge in 
               building interactive dashboards.
             </motion.p>
 
@@ -201,7 +201,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("projects")}
-                className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold px-8 py-6 rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+                className="group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold px-8 py-6 rounded-xl shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 View Projects
@@ -217,7 +217,7 @@ export const HeroSection = () => {
                   link.download = 'Jamshed_Ali_Resume.pdf';
                   link.click();
                 }}
-                className="border-2 border-slate-700 text-slate-300 hover:border-cyan-500/50 hover:text-white hover:bg-cyan-500/10 px-8 py-6 rounded-xl transition-all duration-300"
+                className="border-2 border-stone-700 text-stone-300 hover:border-amber-500/50 hover:text-white hover:bg-amber-500/10 px-8 py-6 rounded-xl transition-all duration-300"
               >
                 <Download className="w-5 h-5 mr-2" />
                 Download CV
@@ -231,7 +231,7 @@ export const HeroSection = () => {
               transition={{ delay: 1 }}
               className="flex items-center gap-4 pt-4"
             >
-              <span className="text-sm text-slate-500">Connect:</span>
+              <span className="text-sm text-stone-500">Connect:</span>
               {[
                 { icon: Github, href: "https://github.com/Jamshed-Ali-23" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/jamshedali23/" },
@@ -244,7 +244,7 @@ export const HeroSection = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-xl text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+                  className="p-3 bg-stone-800/50 border border-stone-700/50 rounded-xl text-stone-400 hover:text-amber-400 hover:border-amber-500/30 transition-all"
                 >
                   <social.icon className="w-5 h-5" />
                 </motion.a>
@@ -267,44 +267,44 @@ export const HeroSection = () => {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-3xl opacity-30 scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full blur-3xl opacity-30 scale-110" />
               
               {/* Image Container */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl shadow-cyan-500/20">
+              <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-stone-800 shadow-2xl shadow-amber-500/20">
                 <img
-                  src="/images/profile.jpg"
+                  src="/images/profile.webp"
                   alt="Jamshed Ali"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent" />
               </div>
 
               {/* Floating Badges */}
               <motion.div
-                className="absolute -top-4 -right-4 px-4 py-2 bg-slate-900 border border-cyan-500/30 rounded-xl shadow-lg"
+                className="absolute -top-4 -right-4 px-4 py-2 bg-stone-900 border border-amber-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
               >
                 <span className="text-2xl"></span>
-                <span className="ml-2 text-sm font-medium text-cyan-400">Python</span>
+                <span className="ml-2 text-sm font-medium text-amber-400">Python</span>
               </motion.div>
               
               <motion.div
-                className="absolute top-1/2 -left-8 px-4 py-2 bg-slate-900 border border-blue-500/30 rounded-xl shadow-lg"
+                className="absolute top-1/2 -left-8 px-4 py-2 bg-stone-900 border border-orange-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
               >
                 <span className="text-2xl"></span>
-                <span className="ml-2 text-sm font-medium text-blue-400">Power BI</span>
+                <span className="ml-2 text-sm font-medium text-orange-400">Power BI</span>
               </motion.div>
               
               <motion.div
-                className="absolute -bottom-2 right-0 px-4 py-2 bg-slate-900 border border-purple-500/30 rounded-xl shadow-lg"
+                className="absolute -bottom-2 right-0 px-4 py-2 bg-stone-900 border border-rose-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, 3, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
               >
                 <span className="text-2xl"></span>
-                <span className="ml-2 text-sm font-medium text-purple-400">React</span>
+                <span className="ml-2 text-sm font-medium text-rose-400">React</span>
               </motion.div>
             </motion.div>
 
@@ -313,7 +313,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="grid grid-cols-3 gap-8 p-6 bg-slate-900/50 border border-slate-800/50 rounded-2xl backdrop-blur-sm"
+              className="grid grid-cols-3 gap-8 p-6 bg-stone-900/50 border border-stone-800/50 rounded-2xl backdrop-blur-sm"
             >
               <StatCard value="5+" label="Projects" delay={1.1} />
               <StatCard value="6+" label="Tools" delay={1.2} />
@@ -333,7 +333,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center text-slate-500 hover:text-cyan-400 transition-colors"
+            className="flex flex-col items-center text-stone-500 hover:text-amber-400 transition-colors"
           >
             <span className="text-xs mb-2 tracking-widest uppercase">Scroll</span>
             <ChevronDown className="w-5 h-5" />

@@ -272,7 +272,7 @@ export const HeroSection = () => {
               {/* Image Container */}
               <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-stone-800 shadow-2xl shadow-amber-500/20">
                 <img
-                  src="/images/profile.webp"
+                  src="/images/profile.jpg"
                   alt="Jamshed Ali"
                   className="w-full h-full object-cover object-center scale-110"
                 />

@@ -23,20 +23,20 @@ const CategoryCard = ({ title, description, badges, delay, icon }: any) => {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ delay, duration: 0.5 }}
-      className="group relative bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
+      className="group relative bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-5 sm:p-6 lg:p-8 hover:border-amber-400/40 transition-all"
     >
       {/* Icon & Title */}
       <motion.div 
-        className="text-5xl mb-4"
+        className="text-4xl sm:text-5xl mb-3 sm:mb-4"
         whileHover={{ scale: 1.1, rotate: 5 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
         {icon}
       </motion.div>
       
-      <h3 className="text-2xl font-bold text-amber-300 mb-3">{title}</h3>
+      <h3 className="text-xl sm:text-2xl font-bold text-amber-300 mb-2 sm:mb-3">{title}</h3>
       
-      <p className="text-stone-400 mb-6 leading-relaxed">
+      <p className="text-sm sm:text-base text-stone-400 mb-4 sm:mb-6 leading-relaxed">
         {description}
       </p>
       
@@ -56,12 +56,12 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
     whileInView={{ opacity: 1, scale: 1 }}
     whileHover={{ scale: 1.05 }}
     transition={{ delay, type: "spring", stiffness: 200, damping: 15 }}
-    className="text-center p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
+    className="text-center p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
   >
-    <div className="text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-2">
+    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-1 sm:mb-2">
       {value}
     </div>
-    <div className="text-stone-300">{label}</div>
+    <div className="text-sm sm:text-base text-stone-300">{label}</div>
   </motion.div>
 );
 
@@ -116,12 +116,12 @@ export const SkillsSection = () => {
   const engineeringTech = ["React.js", "Streamlit", "Git", "Plotly", "TypeScript", "Tailwind CSS"];
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -130,19 +130,19 @@ export const SkillsSection = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 Technical Expertise
               </span>
             </h2>
-            <p className="text-xl text-stone-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-stone-300 max-w-3xl mx-auto px-4">
               A comprehensive toolkit for transforming raw data into actionable insights. Specialized in Python, SQL, and Power BI with a unique edge in interactive React dashboards.
             </p>
           </motion.div>
 
           {/* Categories Grid */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
             <CategoryCard
               icon="🔧"
               title="Core Technologies"
@@ -169,7 +169,7 @@ export const SkillsSection = () => {
           </motion.div>
 
           {/* Skills Summary Stats */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 lg:mb-20">
             <StatCard value="6+" label="Core Data Science Tools" delay={0} />
             <StatCard value="6+" label="ML & Analytics Techniques" delay={0.1} />
             <StatCard value="6+" label="Engineering & Deployment Tools" delay={0.2} />
@@ -178,12 +178,12 @@ export const SkillsSection = () => {
           {/* Key Strengths */}
           <motion.div 
             variants={itemVariants} 
-            className="bg-gradient-to-br from-amber-900/20 via-stone-900/50 to-orange-900/20 border border-amber-400/20 rounded-3xl p-10"
+            className="bg-gradient-to-br from-amber-900/20 via-stone-900/50 to-orange-900/20 border border-amber-400/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10"
           >
-            <h3 className="text-3xl font-bold text-amber-300 mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-amber-300 mb-6 sm:mb-8">
               Key Strengths
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <StrengthCard
                 icon="📊"
                 title="Exploratory Data Analysis"

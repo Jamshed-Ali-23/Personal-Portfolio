@@ -51,10 +51,10 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
     transition={{ delay, duration: 0.5, type: "spring" }}
     className="text-center"
   >
-    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+    <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
       {value}
     </div>
-    <div className="text-sm text-stone-400 mt-1">{label}</div>
+    <div className="text-xs sm:text-sm text-stone-400 mt-1">{label}</div>
   </motion.div>
 );
 
@@ -110,10 +110,10 @@ export const HeroSection = () => {
 
       {/* Main Content */}
       <motion.div 
-        className="container mx-auto px-6 py-20 relative z-10"
+        className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 relative z-10"
         style={{ y, opacity }}
       >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
           
           {/* Left Content */}
           <motion.div
@@ -142,7 +142,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
               >
                 <span className="text-white">Hi, I'm </span>
                 <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 bg-clip-text text-transparent">
@@ -154,7 +154,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-2xl md:text-3xl text-slate-300 h-10"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-slate-300 h-8 sm:h-10"
               >
                 {text}
                 <motion.span
@@ -170,7 +170,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-lg text-stone-400 leading-relaxed max-w-xl"
+              className="text-base sm:text-lg text-stone-400 leading-relaxed max-w-xl"
             >
               I transform complex data into actionable insights. Specializing in 
               <span className="text-amber-400 font-medium"> Python, Power BI, SQL</span>, and 
@@ -201,7 +201,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("projects")}
-                className="group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold px-8 py-6 rounded-xl shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300"
+                className="group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 rounded-xl shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300 text-sm sm:text-base"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
                 View Projects
@@ -217,7 +217,7 @@ export const HeroSection = () => {
                   link.download = 'Jamshed_Ali_Resume.pdf';
                   link.click();
                 }}
-                className="border-2 border-stone-700 text-stone-300 hover:border-amber-500/50 hover:text-white hover:bg-amber-500/10 px-8 py-6 rounded-xl transition-all duration-300"
+                className="border-2 border-stone-700 text-stone-300 hover:border-amber-500/50 hover:text-white hover:bg-amber-500/10 px-6 sm:px-8 py-5 sm:py-6 rounded-xl transition-all duration-300 text-sm sm:text-base"
               >
                 <Download className="w-5 h-5 mr-2" />
                 Download CV
@@ -270,7 +270,7 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full blur-3xl opacity-30 scale-110" />
               
               {/* Image Container */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-stone-800 shadow-2xl shadow-amber-500/20">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-stone-800 shadow-2xl shadow-amber-500/20">
                 <img
                   src="/images/profile.jpg"
                   alt="Jamshed Ali"
@@ -279,9 +279,9 @@ export const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent" />
               </div>
 
-              {/* Floating Badges */}
+              {/* Floating Badges - Hidden on mobile */}
               <motion.div
-                className="absolute -top-4 -right-4 px-4 py-2 bg-stone-900 border border-amber-500/30 rounded-xl shadow-lg"
+                className="hidden sm:block absolute -top-4 -right-4 px-4 py-2 bg-stone-900 border border-amber-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
               >
@@ -290,7 +290,7 @@ export const HeroSection = () => {
               </motion.div>
               
               <motion.div
-                className="absolute top-1/2 -left-8 px-4 py-2 bg-stone-900 border border-orange-500/30 rounded-xl shadow-lg"
+                className="hidden sm:block absolute top-1/2 -left-8 px-4 py-2 bg-stone-900 border border-orange-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1 }}
               >
@@ -299,7 +299,7 @@ export const HeroSection = () => {
               </motion.div>
               
               <motion.div
-                className="absolute -bottom-2 right-0 px-4 py-2 bg-stone-900 border border-rose-500/30 rounded-xl shadow-lg"
+                className="hidden sm:block absolute -bottom-2 right-0 px-4 py-2 bg-stone-900 border border-rose-500/30 rounded-xl shadow-lg"
                 animate={{ y: [0, -10, 0], rotate: [0, 3, 0] }}
                 transition={{ duration: 4, repeat: Infinity, delay: 1.5 }}
               >
@@ -313,7 +313,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="grid grid-cols-3 gap-8 p-6 bg-stone-900/50 border border-stone-800/50 rounded-2xl backdrop-blur-sm"
+              className="grid grid-cols-3 gap-4 sm:gap-8 p-4 sm:p-6 bg-stone-900/50 border border-stone-800/50 rounded-2xl backdrop-blur-sm"
             >
               <StatCard value="5+" label="Projects" delay={1.1} />
               <StatCard value="6+" label="Tools" delay={1.2} />

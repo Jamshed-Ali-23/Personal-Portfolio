@@ -201,12 +201,12 @@ export const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 -right-40 w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/2 -left-40 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-1/4 -right-40 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -215,13 +215,13 @@ export const ProjectsSection = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 Featured Data Science Projects
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-stone-300 max-w-3xl mx-auto px-4">
               Case studies demonstrating my ability to identify business problems, select appropriate technologies, and deliver data-driven solutions.
             </p>
           </motion.div>
@@ -229,7 +229,7 @@ export const ProjectsSection = () => {
           {/* Projects Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
           >
             {projects.map((project, index) => (
               <ProjectCard
@@ -244,9 +244,9 @@ export const ProjectsSection = () => {
           {/* CTA for more projects */}
           <motion.div
             variants={itemVariants}
-            className="text-center mt-20"
+            className="text-center mt-12 sm:mt-16 lg:mt-20 px-4"
           >
-            <p className="text-stone-300 mb-8 text-lg">
+            <p className="text-stone-300 mb-6 sm:mb-8 text-base sm:text-lg">
               Explore more projects on my GitHub, including additional case studies in data visualization, SQL optimization, and machine learning.
             </p>
             <motion.div
@@ -255,7 +255,7 @@ export const ProjectsSection = () => {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-12 py-7 text-lg shadow-xl shadow-amber-500/40 hover:shadow-amber-500/60 transition-all duration-300"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 sm:px-12 py-5 sm:py-7 text-base sm:text-lg shadow-xl shadow-amber-500/40 hover:shadow-amber-500/60 transition-all duration-300"
                 asChild
               >
                 <a href="https://github.com/Jamshed-Ali-23" target="_blank" rel="noopener noreferrer">

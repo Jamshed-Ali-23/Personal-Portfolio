@@ -86,11 +86,11 @@ export const ResumeSection = () => {
   };
 
   return (
-    <section id="resume" className="py-20 relative overflow-hidden">
+    <section id="resume" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 -right-40 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/2 -right-40 w-64 sm:w-80 h-64 sm:h-80 bg-amber-500/10 rounded-full blur-3xl -z-10" />
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -99,13 +99,13 @@ export const ResumeSection = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Section Title */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <motion.div variants={itemVariants} className="mb-10 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
-            <p className="text-lg text-stone-300">
+            <p className="text-base sm:text-lg text-stone-300">
               My professional journey in Data Analytics and insights-driven problem solving.
             </p>
           </motion.div>
@@ -128,48 +128,48 @@ export const ResumeSection = () => {
           </motion.div>
 
           {/* Stats Section */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
+              className="text-center p-4 sm:p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
             >
-              <div className="text-3xl font-bold text-amber-300 mb-2">3+</div>
-              <div className="text-sm text-stone-300">Programming Languages</div>
+              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1 sm:mb-2">3+</div>
+              <div className="text-xs sm:text-sm text-stone-300">Programming Languages</div>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
+              className="text-center p-4 sm:p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
             >
-              <div className="text-3xl font-bold text-amber-300 mb-2">6+</div>
-              <div className="text-sm text-stone-300">Data Tools & Platforms</div>
+              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1 sm:mb-2">6+</div>
+              <div className="text-xs sm:text-sm text-stone-300">Data Tools & Platforms</div>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
+              className="text-center p-4 sm:p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
             >
-              <div className="text-3xl font-bold text-amber-300 mb-2">5+</div>
-              <div className="text-sm text-stone-300">Major Projects Delivered</div>
+              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1 sm:mb-2">5+</div>
+              <div className="text-xs sm:text-sm text-stone-300">Major Projects Delivered</div>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
+              className="text-center p-4 sm:p-6 bg-stone-900/50 border border-amber-400/20 rounded-xl"
             >
-              <div className="text-3xl font-bold text-amber-300 mb-2">20%</div>
-              <div className="text-sm text-stone-300">Efficiency Improvement</div>
+              <div className="text-2xl sm:text-3xl font-bold text-amber-300 mb-1 sm:mb-2">20%</div>
+              <div className="text-xs sm:text-sm text-stone-300">Efficiency Improvement</div>
             </motion.div>
           </motion.div>
 
           {/* Key Achievements */}
-          <motion.div variants={itemVariants} className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-400/20 rounded-2xl p-8 mb-12">
-            <h3 className="text-2xl font-bold text-amber-300 mb-6 flex items-center gap-2">
-              <Briefcase className="w-6 h-6" />
+          <motion.div variants={itemVariants} className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-400/20 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 mb-10 sm:mb-12">
+            <h3 className="text-xl sm:text-2xl font-bold text-amber-300 mb-4 sm:mb-6 flex items-center gap-2">
+              <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />
               Key Achievements at Elevvo Pathways
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <motion.div
                 whileHover={{ x: 5 }}
                 className="p-4 rounded-lg bg-stone-900/50 border border-amber-400/10"
@@ -221,13 +221,13 @@ export const ResumeSection = () => {
               <Button
                 size="lg"
                 onClick={handleDownload}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-10 py-6 text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-6 sm:px-10 py-5 sm:py-6 text-base sm:text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Download Full Resume (PDF)
               </Button>
             </motion.div>
-            <p className="text-stone-400 text-sm mt-4">Last updated: November 2025</p>
+            <p className="text-stone-400 text-xs sm:text-sm mt-3 sm:mt-4">Last updated: November 2025</p>
           </motion.div>
         </motion.div>
       </div>

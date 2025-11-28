@@ -59,12 +59,12 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 left-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 right-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -73,31 +73,32 @@ export const ContactSection = () => {
           className="max-w-4xl mx-auto"
         >
           {/* Main CTA */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-10 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 Ready to Uncover Hidden Patterns in Your Data?
               </span>
             </h2>
-            <p className="text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed px-4">
               Let's collaborate on data-driven projects that transform raw information into strategic decisions. Whether you need exploratory analysis, machine learning models, interactive dashboards, or custom data applications—I'm here to help.
             </p>
           </motion.div>
 
           {/* Action Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-10 sm:mb-12 lg:mb-16 px-4">
             {/* Primary CTA - Email */}
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
               <Button
                 size="lg"
                 onClick={handleEmailClick}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-10 py-6 text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
+                className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-6 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
               >
-                <Mail className="w-5 h-5 mr-2" />
-                Email Me: jamshedsaiin@gmail.com
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                <span className="hidden sm:inline">Email Me: </span>jamshedsaiin@gmail.com
               </Button>
             </motion.div>
 
@@ -105,21 +106,22 @@ export const ContactSection = () => {
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
               <Button
                 size="lg"
                 onClick={handleDownloadResume}
                 variant="outline"
-                className="border-2 border-amber-400/60 text-amber-300 hover:bg-amber-400/10 hover:border-amber-300 transition-all duration-300 px-10 py-6 text-lg backdrop-blur-sm"
+                className="w-full sm:w-auto border-2 border-amber-400/60 text-amber-300 hover:bg-amber-400/10 hover:border-amber-300 transition-all duration-300 px-6 sm:px-10 py-5 sm:py-6 text-sm sm:text-base lg:text-lg backdrop-blur-sm"
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Download Resume (PDF)
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Contact Cards */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12 lg:mb-16">
             {/* Response Time */}
             <motion.div
               whileHover={{ scale: 1.05, y: -10 }}
@@ -158,9 +160,9 @@ export const ContactSection = () => {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h3 className="text-xl font-bold text-stone-200 mb-6">Connect On Social Media</h3>
-            <div className="flex justify-center gap-4">
+          <motion.div variants={itemVariants} className="text-center mb-10 sm:mb-12 lg:mb-16">
+            <h3 className="text-lg sm:text-xl font-bold text-stone-200 mb-4 sm:mb-6">Connect On Social Media</h3>
+            <div className="flex justify-center gap-3 sm:gap-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
@@ -180,14 +182,14 @@ export const ContactSection = () => {
           {/* Closing Message */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-400/20 rounded-2xl p-8 text-center"
+            className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border border-amber-400/20 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 text-center"
           >
-            <h3 className="text-2xl font-bold text-amber-300 mb-4">Let's Work Together</h3>
-            <p className="text-stone-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+            <h3 className="text-xl sm:text-2xl font-bold text-amber-300 mb-3 sm:mb-4">Let's Work Together</h3>
+            <p className="text-sm sm:text-base text-stone-300 mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed">
               I'm excited to collaborate on projects that leverage data for strategic advantage. Whether you're looking to:
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div className="p-3 rounded-lg bg-stone-900/50">
                 <p className="text-amber-300 font-semibold text-sm">📊 Analyze Complex Data</p>
               </div>
@@ -199,7 +201,7 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <p className="text-stone-300 mb-6">
+            <p className="text-sm sm:text-base text-stone-300 mb-4 sm:mb-6">
               Let's have a conversation. <span className="text-amber-300 font-semibold">Reach out today!</span>
             </p>
 
@@ -210,7 +212,7 @@ export const ContactSection = () => {
               <Button
                 size="lg"
                 onClick={handleEmailClick}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-12 py-6 text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
+                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 sm:px-12 py-5 sm:py-6 text-base sm:text-lg shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Start a Conversation

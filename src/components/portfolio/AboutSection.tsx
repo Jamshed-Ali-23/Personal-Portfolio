@@ -8,12 +8,12 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
     whileInView={{ opacity: 1, scale: 1 }}
     whileHover={{ scale: 1.05 }}
     transition={{ delay, type: "spring", stiffness: 200, damping: 15 }}
-    className="text-center p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
+    className="text-center p-5 sm:p-6 lg:p-8 bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl hover:border-amber-400/40 transition-all"
   >
-    <div className="text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-2">
+    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent mb-1 sm:mb-2">
       {value}
     </div>
-    <div className="text-stone-300">{label}</div>
+    <div className="text-sm sm:text-base text-stone-300">{label}</div>
   </motion.div>
 );
 
@@ -86,12 +86,12 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-amber-500/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-orange-500/10 rounded-full blur-3xl -z-10" />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -100,30 +100,30 @@ export const AboutSection = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
                 About Me
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-stone-300 max-w-3xl mx-auto px-4">
               Data Analytics professional with a strong mathematical foundation, transitioning into Data Science with a unique edge in interactive React dashboards.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Left side - Personal Statement & Education */}
             <motion.div variants={itemVariants} className="space-y-8">
               {/* Personal Statement Card */}
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-8 hover:border-amber-400/40 transition-all"
+                className="bg-gradient-to-br from-stone-900/80 to-stone-800/50 border border-amber-400/20 rounded-2xl p-5 sm:p-6 lg:p-8 hover:border-amber-400/40 transition-all"
               >
-                <h3 className="text-2xl font-bold text-amber-300 mb-4 flex items-center gap-3">
-                  <Target className="w-6 h-6" />
+                <h3 className="text-xl sm:text-2xl font-bold text-amber-300 mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6" />
                   Who I Am
                 </h3>
-                <p className="text-stone-300 leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-stone-300 leading-relaxed mb-3 sm:mb-4">
                   I'm a Data Analytics Intern at <span className="text-amber-300 font-semibold">Elevvo Pathways</span>, currently pursuing a <span className="text-amber-300 font-semibold">BSCS degree at Air University, Islamabad</span>. My passion lies in transforming raw data into actionable insights through statistical analysis, machine learning, and interactive dashboards.
                 </p>
                 <p className="text-stone-300 leading-relaxed">
@@ -219,7 +219,7 @@ export const AboutSection = () => {
           </div>
 
           {/* Stats Section */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-16 lg:mt-20">
             <StatCard value="3+" label="Programming Languages" delay={0} />
             <StatCard value="18+" label="Data & Analytics Tools" delay={0.1} />
             <StatCard value="5+" label="Major Projects Delivered" delay={0.2} />

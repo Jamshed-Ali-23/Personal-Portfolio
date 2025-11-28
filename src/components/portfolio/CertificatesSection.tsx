@@ -106,8 +106,8 @@ export const CertificatesSection = (): JSX.Element => {
   };
 
   return (
-    <section id="certificates" className="py-20 relative">
-      <div className="container mx-auto px-6">
+    <section id="certificates" className="py-16 sm:py-20 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -116,11 +116,11 @@ export const CertificatesSection = (): JSX.Element => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Title */}
-          <motion.div variants={certificateVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
+          <motion.div variants={certificateVariants} className="text-center mb-10 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-amber-300 via-orange-300 to-rose-400 bg-clip-text text-transparent">
               Certificates & Achievements
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Professional certifications that validate my expertise across various technologies
             </p>
           </motion.div>
@@ -128,7 +128,7 @@ export const CertificatesSection = (): JSX.Element => {
           {/* Certificates Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           >
             {certificates.map((certificate, index) => (
               <motion.div
@@ -220,24 +220,24 @@ export const CertificatesSection = (): JSX.Element => {
           {/* Achievement Summary */}
           <motion.div
             variants={certificateVariants}
-            className="mt-16 text-center"
+            className="mt-10 sm:mt-12 lg:mt-16 text-center"
           >
             <Card className="inline-block bg-gradient-glass backdrop-blur-md border-border/50 shadow-glass">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-center space-x-8">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center justify-center space-x-4 sm:space-x-6 lg:space-x-8">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">6</div>
-                    <div className="text-sm text-muted-foreground">Certificates</div>
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1 sm:mb-2">6</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Certificates</div>
                   </div>
-                  <div className="w-px h-12 bg-border/50" />
+                  <div className="w-px h-8 sm:h-10 lg:h-12 bg-border/50" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-secondary mb-2">4</div>
-                    <div className="text-sm text-muted-foreground">Platforms</div>
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary mb-1 sm:mb-2">4</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Platforms</div>
                   </div>
-                  <div className="w-px h-12 bg-border/50" />
+                  <div className="w-px h-8 sm:h-10 lg:h-12 bg-border/50" />
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-accent mb-2">100%</div>
-                    <div className="text-sm text-muted-foreground">Verified</div>
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-accent mb-1 sm:mb-2">100%</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Verified</div>
                   </div>
                 </div>
               </CardContent>
